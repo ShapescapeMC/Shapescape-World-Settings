@@ -1,0 +1,16 @@
+{
+	"product_creator": "Shapescape",
+	"product_name": "Level Dat Updater Test",
+	"product_key": "YWN",
+	"product_description": "By Shapescape",
+	"settings": {
+		"multiplayer": true,
+		"cheats": false,
+		"sendCommandFeedback": false,
+		"commandBlockOutput": false,
+		"doDayLightCycle": true,
+		"doMobSpawning": true,
+		"difficulty": "normal",
+		"defaultGamemode": "survival"
+	}
+}

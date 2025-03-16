@@ -1,0 +1,10 @@
+{
+	"description": "A filter that sets some properties in the level.dat file.",
+	"filters": [
+		{
+			"runWith": "python",
+			"script": "./main.py",
+			"name": "shapescape:level_dat_updater"
+		}
+	]
+}

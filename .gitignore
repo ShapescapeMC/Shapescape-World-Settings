@@ -1,1 +1,12 @@
 docs/_build
+
+# The level.dat file is used for testing, but it's always copied from the
+# level.dat.original file.
+shapescape_world_settings/test/level.dat
+
+*.pyc
+**/__pycache__/**
+**/.DS_Store
+**/.idea
+**/.vscode
+**/build
