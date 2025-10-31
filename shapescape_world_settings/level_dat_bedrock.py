@@ -126,6 +126,8 @@ BedrockLevelData = schema("BedrockLevelData", {
     "texturePacksRequired": Byte,
     "tntexplodes": Byte,
     "worldStartCount": Long,
+    "EducationCreatorID": String,
+    "EducationWorldCreatorID": String,
 })
 # fmt: on
 

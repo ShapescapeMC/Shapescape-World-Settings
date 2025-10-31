@@ -131,6 +131,12 @@ class ReleaseConfig(TypedDict):
     product_name: str
     '''Translates to the 'LevelName' tag in the level.dat file.'''
 
+    edu_creator_uuid: str
+    '''Translates to the 'EducationCreatorID' tag in the level.dat file.'''
+
+    edu_world_creator_uuid: str
+    '''Translates to the 'EducationWorldCreatorID' tag in the level.dat file.'''
+
     multiplayer: bool
     '''
     Controlls the 'MultiplayerGameIntent' and 'XBLBroadcastIntent' tags in the
@@ -184,6 +190,21 @@ def load_release_config(release_config_path: Path) -> ReleaseConfig:
         dict_name='the release config file',
         type_condition=str
     )
+
+    edu_creator_uuid: str = nice_get_property(
+        release_config,
+        'edu_creator_uuid',
+        dict_name='the release config file',
+        type_condition=str
+    )
+
+    edu_world_creator_uuid: str = nice_get_property(
+        release_config,
+        'edu_world_creator_uuid',
+        dict_name='the release config file',
+        type_condition=str
+    )
+
     settings: dict = nice_get_property(
         release_config,
         'settings',
@@ -249,7 +270,9 @@ def load_release_config(release_config_path: Path) -> ReleaseConfig:
         do_day_light_cycle=do_day_light_cycle,
         do_mob_spawning=do_mob_spawning,
         difficulty=difficulty,
-        default_gamemode=default_gamemode
+        default_gamemode=default_gamemode,
+        edu_creator_uuid=edu_creator_uuid,
+        edu_world_creator_uuid=edu_world_creator_uuid
     )
 
 
@@ -289,6 +312,8 @@ def update_level_dat(level_dat_path: Path, release_config: ReleaseConfig, leveln
                     'adventure': 2
                 }[release_config['default_gamemode']]
             )
+            level_data['EducationCreatorID'] = String(release_config['edu_creator_uuid'])
+            level_data['EducationWorldCreatorID'] = String(release_config['edu_world_creator_uuid'])
         # Update Levelname file
         if not levelname_path.exists():
             levelname_path.touch()
