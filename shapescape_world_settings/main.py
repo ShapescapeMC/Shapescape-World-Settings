@@ -132,10 +132,10 @@ class ReleaseConfig(TypedDict):
     '''Translates to the 'LevelName' tag in the level.dat file.'''
 
     edu_creator_uuid: str
-    '''Translates to the 'EducationCreatorID' tag in the level.dat file.'''
+    '''Translates to the 'EducationCreatorId' tag in the level.dat file.'''
 
     edu_world_creator_uuid: str
-    '''Translates to the 'EducationWorldCreatorID' tag in the level.dat file.'''
+    '''Translates to the 'EducationWorldCreatorId' tag in the level.dat file.'''
 
     multiplayer: bool
     '''
@@ -312,8 +312,8 @@ def update_level_dat(level_dat_path: Path, release_config: ReleaseConfig, leveln
                     'adventure': 2
                 }[release_config['default_gamemode']]
             )
-            level_data['EducationCreatorID'] = String(release_config['edu_creator_uuid'])
-            level_data['EducationWorldCreatorID'] = String(release_config['edu_world_creator_uuid'])
+            level_data['EducationCreatorId'] = String(release_config['edu_creator_uuid'])
+            level_data['EducationWorldCreatorId'] = String(release_config['edu_world_creator_uuid'])
         # Update Levelname file
         if not levelname_path.exists():
             levelname_path.touch()
